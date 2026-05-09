@@ -319,3 +319,106 @@ footer {
     max-width: 500px !important;
     width: 100% !important;
 }
+/* Спливаюче вікно в кутку */
+.popup-callback {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 350px;
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-top: 4px solid #ff3333; /* Червона акцентна смужка зверху */
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    animation: slideInUp 0.5s ease-out; /* Плавна поява знизу */
+}
+
+/* Контент всередині */
+.popup-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.popup-content p {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+/* Маленький ярлик зверху тексту */
+.popup-badge {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: rgba(255, 51, 51, 0.1);
+    color: #ff3333;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+/* Кнопка виклику */
+.btn-popup-call {
+    display: block;
+    width: 100%;
+    background-color: #ff3333;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-popup-call:hover {
+    background-color: #cc2222;
+    transform: translateY(-2px);
+}
+
+/* Кнопка закриття (хрестик) */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.popup-close:hover {
+    color: #fff;
+}
+
+/* Анімація появи вікна */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 480px) {
+    .popup-callback {
+        bottom: 15px;
+        right: 15px;
+        width: calc(100% - 30px); /* На мобільних розтягується майже на всю ширину екрану */
+        padding: 20px;
+    }
+}
