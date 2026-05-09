@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>911detailing — Детейлінг центр</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>911detailing — Детейлінг центр</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+        <script src="scripts.js" defer></script>
+    </head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>911detailing — Детейлінг центр</title>
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="script.js" defer></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    </head>
 </head>
 <body>
     <div class="popup-callback" id="callbackPopup" style="display: none;">
@@ -23,53 +34,35 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const popup = document.getElementById('callbackPopup');
-            const closeBtn = document.getElementById('closePopupBtn');
-            const callBtn = document.getElementById('callPopupBtn');
+    
 
-            // Перевіряємо, чи користувач раніше вже не закривав цей банер
-            if (!localStorage.getItem('popupDismissed')) {
-                // Показуємо вікно через 3 секунди після завантаження сайту, щоб це виглядало ненав'язливо
-                setTimeout(() => {
-                    popup.style.display = 'block';
-                }, 3000);
-            }
-
-            // Функція закриття та збереження вибору
-            function dismissPopup() {
-                popup.style.display = 'none';
-                localStorage.setItem('popupDismissed', 'true');
-            }
-
-            // Закриття на хрестик
-            closeBtn.addEventListener('click', dismissPopup);
-
-            // Закриття при натисканні на кнопку дзвінка (щоб вікно одразу зникало при виклику)
-            callBtn.addEventListener('click', dismissPopup);
-        });
-    </script>
-
-<header class="navbar">
-    <div class="container">
-        <a href="#" class="logo">911<span>detailing</span></a>
-        <nav class="nav-links">
-            <a href="#portfolio">Роботи</a>
-            <a href="#about">Про нас</a>
-            <a href="#services">Послуги та ціни</a>
-            <a href="#contacts">Контакти</a>
-            <a href="https://www.instagram.com/911_detailing_/" target="_blank" class="instagram-nav">Instagram</a>
-        </nav>
-        <div class="header-action-btns">
-            <a href="https://t.me/andriy011101" target="_blank" class="tg-strict-btn">
-                <img src="https://telegram.org/img/website_icon.svg" alt="TG" class="tg-strict-icon">
-                <span>Telegram</span>
-            </a>
-            <a href="tel:+380680718725" class="btn btn-call">Зателефонувати</a>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">911<span>detailing</span></a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#portfolio">Роботи</a>
+                <a href="#about">Про нас</a>
+                <a href="#services">Послуги та ціни</a>
+                <a href="#contacts">Контакти</a>
+                <a href="https://www.instagram.com/911_detailing_/" target="_blank" class="instagram-nav">Instagram</a>
+            </nav>
+            
+            <div class="header-action-btns">
+                <a href="https://t.me/andriy011101" target="_blank" class="tg-strict-btn">
+                    <img src="https://telegram.org/img/website_icon.svg" alt="TG" class="tg-strict-icon">
+                    <span>Telegram</span>
+                </a>
+                <a href="tel:+380680718725" class="btn btn-call">Зателефонувати</a>
+                
+                <button class="burger-menu" id="burgerBtn" aria-label="Відкрити меню">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <section class="hero">
         <div class="hero-content container">
