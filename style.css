@@ -286,3 +286,36 @@ footer {
         font-size: 32px;
     }
 }
+/* Блок портфоліо (Наші роботи) */
+.portfolio {
+    padding: 100px 0;
+}
+
+.portfolio h2 {
+    text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.portfolio .section-subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.portfolio-single-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Округлюємо рамку плеєра та додаємо гарну тінь */
+.portfolio-single-video iframe {
+    border-radius: 8px !important;
+    border: 1px solid #222 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    max-width: 500px !important;
+    width: 100% !important;
+}
