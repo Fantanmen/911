@@ -428,72 +428,94 @@ footer {
 
 
 /* 1. Кнопка Telegram в шапці (navbar) */
-/* Контейнер для кнопок в шапці */
+/* ==========================================================================
+   ЗАЛІЗОБЕТОННА КНОПКА TELEGRAM В ШАПЦІ (БЕЗ КОНФЛІКТІВ)
+   ========================================================================== */
+/* ==========================================================================
+   ЗАЛІЗОБЕТОННА КНОПКА TELEGRAM В ШАПЦІ (ВЕРСІЯ З БІЛИМ ТЕКСТОМ)
+   ========================================================================== */
+
+/* Контейнер кнопок */
 .header-action-btns {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
 }
 
-/* Кнопка Telegram в шапці (компактна та з іконкою) */
-.tg-header-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Відстань між іконкою та текстом */
-    background-color: #0088cc;
-    color: #ffffff !important; /* Примусово білий колір тексту */
-    padding: 8px 14px;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 600;
+/* Сама кнопка та всі її стани (примусово білий колір) */
+a.tg-strict-btn,
+a.tg-strict-btn:link,
+a.tg-strict-btn:visited,
+a.tg-strict-btn:hover,
+a.tg-strict-btn:active,
+a.tg-strict-btn:focus {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    
+    /* Колір та фон */
+    background-color: #0088cc !important;
+    background: #0088cc !important;
+    color: #ffffff !important; /* Текст буде ГАРАНТОВАНО білим */
+    
+    /* Геометрія */
+    height: 38px !important;
+    padding: 0 14px !important;
+    border-radius: 4px !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    
+    /* Шрифти */
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+    text-transform: none !important; /* Ніякого капсу */
+    text-decoration: none !important; /* Ніяких ліній знизу */
+    letter-spacing: normal !important;
+    line-height: normal !important;
+    
+    /* Анімація */
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+}
+
+/* Колір тексту всередині span */
+a.tg-strict-btn span {
+    color: #ffffff !important;
     text-transform: none !important;
-    text-decoration: none !important;
-    transition: background-color 0.3s, transform 0.2s;
-    height: 38px;
-    box-sizing: border-box;
-    white-space: nowrap;
 }
 
-/* Примусові стилі для SVG-іконки, щоб вона ГАРАНТОВАНО з'явилася */
-.tg-header-btn svg.tg-icon-svg {
-    display: block !important; /* Гарантуємо, що вона не схована */
-    visibility: visible !important;
-    width: 16px !important; /* Чіткий розмір */
+/* Наведення на кнопку */
+a.tg-strict-btn:hover {
+    background-color: #0077b5 !important;
+    background: #0077b5 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Налаштування іконки (без фільтра, чиста іконка) */
+.tg-strict-icon {
+    width: 16px !important;
     height: 16px !important;
-    fill: #ffffff !important; /* Примусово білий колір іконки */
-    flex-shrink: 0; /* Щоб іконка не стискалася */
+    display: block !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-.tg-header-btn:hover {
-    background-color: #0077b5;
-    transform: translateY(-1px);
-}
-
-/* Адаптивність для мобільних */
+/* Адаптивність для телефонів */
 @media (max-width: 768px) {
-    .tg-header-btn span {
-        display: none; /* Ховаємо текст на телефонах */
+    a.tg-strict-btn {
+        width: 38px !important;
+        padding: 0 !important;
     }
     
-    .tg-header-btn {
-        padding: 0;
-        width: 38px;
-        height: 38px;
-        border-radius: 4px;
-        justify-content: center; /* Центруємо іконку */
+    a.tg-strict-btn span {
+        display: none !important; /* Ховаємо слово Telegram на мобільних */
     }
-    
-    /* На мобільних іконка може бути трохи більшою */
-    .tg-header-btn svg.tg-icon-svg {
-        width: 18px !important;
-        height: 18px !important;
-    }
-}
-
-.tg-header-btn:hover {
-    background-color: #0077b5;
-    transform: translateY(-1px);
 }
 
 /* 2. Великий банер запису в Telegram (перед "Чому саме") */
@@ -608,5 +630,151 @@ footer {
         text-align: center;
         /* Переконуємося, що іконка і текст в центрі великої кнопки */
         justify-content: center;
+    }
+}
+/* ==========================================================================
+   СІТКА ДЛЯ ДВОХ INSTAGRAM REELS (ПОРТФОЛІО)
+   ========================================================================== */
+
+/* Контейнер сітки портфоліо */
+.portfolio-reels-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Робимо рівно 2 колонки */
+    gap: 30px; /* Відстань між відео */
+    margin-top: 40px;
+    justify-items: center;
+    align-items: start;
+}
+
+/* Обгортка для кожної іконки/блоку Reels */
+.reel-item {
+    width: 100%;
+    max-width: 480px; /* Стримуємо ширину, щоб відео не ставали надто гігантськими */
+    display: flex;
+    justify-content: center;
+}
+
+/* Адаптація під мобільні екрани */
+@media (max-width: 850px) {
+    .portfolio-reels-grid {
+        grid-template-columns: 1fr; /* На планшетах та телефонах відео стають один під одним */
+        gap: 20px;
+    }
+    
+    .reel-item {
+        max-width: 100%;
+    }
+}
+/* ==========================================================================
+   АДАПТИВНА ТАБЛИЦЯ ПОСЛУГ (ДЛЯ МОБІЛЬНИХ)
+   ========================================================================== */
+
+/* Обгортка таблиці на десктопі */
+.services-table-wrapper {
+    width: 100%;
+    overflow-x: auto; /* На всякий випадок додаємо горизонтальний скрол, якщо екран буде дуже малий */
+    margin-top: 30px;
+}
+
+.services-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: #0f172a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.services-table th, 
+.services-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.services-table th {
+    background-color: #1e293b;
+    color: #ff3f3f; /* Твій червоний акцентний колір */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.services-table td {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.service-desc {
+    display: block;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+/* МАГІЯ ДЛЯ МОБІЛЬНИХ (Екрани менше 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* Ховаємо стандартну шапку таблиці */
+    .services-table thead {
+        display: none !important;
+    }
+    
+    /* Перетворюємо таблицю та її елементи на блочні */
+    .services-table, 
+    .services-table tbody, 
+    .services-table tr, 
+    .services-table td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Кожен рядок таблиці стає окремою карткою */
+    .services-table tr {
+        margin-bottom: 20px;
+        background: #0f172a !important;
+        border: 1px solid #1e293b !important;
+        border-radius: 12px !important;
+        padding: 15px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    /* Оформлення комірок усередині картки */
+    .services-table td {
+        border: none !important;
+        padding: 8px 0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        font-size: 14px !important;
+    }
+    
+    /* Перша комірка (Назва послуги) на всю ширину зверху */
+    .services-table td:first-child {
+        display: block !important;
+        border-bottom: 1px solid #1e293b !important;
+        padding-bottom: 12px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .services-table td:first-child strong {
+        font-size: 16px !important;
+        color: #ffffff !important;
+    }
+    
+    /* Виводимо назву колонки (Седан / Кросовер) ліворуч від ціни */
+    .services-table td:not(:first-child)::before {
+        content: attr(data-label); /* Беремо текст з атрибута HTML */
+        font-weight: 600 !important;
+        color: #94a3b8 !important;
+        font-size: 13px !important;
+        text-align: left !important;
+    }
+    
+    /* Сама ціна стає виділеною праворуч */
+    .services-table td:not(:first-child) {
+        text-align: right !important;
+        color: #ff3f3f !important; /* Робимо ціну червоною/акцентною */
+        font-weight: 700 !important;
     }
 }
